@@ -1,8 +1,16 @@
+html {
+  height: 100%;
+}
+#root {
+  height: 100%;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+  height: 100%;
+  padding: 10px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +18,73 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.app-title {
+  text-align: center;
+}
+.phone-card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.phone-card {
+  margin: 30px;
+}
+.phone-card-wrapper .phone-card img {
+  width: 300px;
+  height: 300px;
+}
+.phone-card-wrapper .phone-card h2,
+.phone-card-wrapper .phone-card p {
+  text-align: center;
+}
+.phone-detail {
+  padding: 30px 100px;
+}
+.phone-detail-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.phone-detail-title button {
+  border-radius: 0;
+  height: 2.5rem;
+  width: 5rem;
+  color: #34c6d3;
+  font-weight: 700;
+  border: 3px solid #34c6d3;
+  background: white;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.phone-detail-title button:hover,
+.phone-detail-title button:focus {
+  color: white;
+  background: #34c6d3;
+}
+.phone-detail-info {
+  display: flex;
+  align-items: center;
+}
+.phone-detail .phone-detail-info img {
+  width: 500px;
+  height: 500px;
+  margin-right: 50px;
+}
+.spinner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .phone-detail-info {
+    display: block;
+    text-align: center;
+  }
+  .phone-detail .phone-detail-info img {
+    width: 250px;
+    height: 250px;
+    margin-right: 25px;
+  }
 }
