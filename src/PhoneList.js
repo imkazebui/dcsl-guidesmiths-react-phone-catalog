@@ -4,7 +4,6 @@ import { Modal } from "react-responsive-modal";
 import Loader from "react-loader-spinner";
 import { getPhones } from "./service";
 import PhoneCreate from "./PhoneCreate";
-import "./index.css";
 
 const PhoneList = () => {
   const [phones, setPhones] = useState([]);
