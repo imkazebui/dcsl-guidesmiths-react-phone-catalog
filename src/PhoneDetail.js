@@ -13,7 +13,7 @@ function PhoneDetail(props) {
         let phoneData = await getPhoneById(phoneID);
         setPhone(phoneData.data);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     })();
     return () => setPhone({});
@@ -36,7 +36,9 @@ function PhoneDetail(props) {
       <div className="phone-detail">
         <div className="phone-detail-title">
           <h2>{phone.name}</h2>
-          <button onClick={handleClick}>Back</button>
+          <button className="button-custom" onClick={handleClick}>
+            Back
+          </button>
         </div>
         <div className="phone-detail-info">
           <img src={phone.imageFileName} alt="Phone"></img>

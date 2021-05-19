@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Modal } from "react-responsive-modal";
 import Loader from "react-loader-spinner";
-const { getPhones } = require("./service");
+import { getPhones } from "./service";
+import PhoneCreate from "./PhoneCreate";
+import "./index.css";
+
 const PhoneList = () => {
   const [phones, setPhones] = useState([]);
+  const [isOpen, setOpen] = useState(false);
   useEffect(() => {
     (async () => {
       try {
         let phoneData = await getPhones();
-        console.log(phoneData.data);
         setPhones(phoneData.data);
       } catch (error) {
         console.log(error);
@@ -16,6 +20,14 @@ const PhoneList = () => {
     })();
     return () => setPhones([]);
   }, []);
+
+  const handleClick = () => setOpen(true);
+  const onClose = () => setOpen(false);
+  const addDevice = device => {
+    onClose();
+    setPhones([...phones, { ...device, id: phones.length }]);
+  };
+
   if (phones.length === 0) {
     return (
       <div className="spinner">
@@ -31,7 +43,21 @@ const PhoneList = () => {
   } else {
     return (
       <div>
-        <h1 className="app-title">Phone Retail</h1>
+        <Modal
+          open={isOpen}
+          onClose={onClose}
+          center
+          styles={{ modal: { width: "35%" } }}
+        >
+          <PhoneCreate addDevice={addDevice}></PhoneCreate>
+        </Modal>
+        <div className="phone-list-header">
+          <h1>Phone Retail</h1>
+          <button className="button-custom" onClick={handleClick}>
+            Add Device
+          </button>
+        </div>
+
         <div className="phone-card-wrapper">
           {phones.map(phone => {
             return (

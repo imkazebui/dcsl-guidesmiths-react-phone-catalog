@@ -5,7 +5,7 @@ export const getPhones = async () => {
     const phones = await axios.get(root + "/phones");
     return phones;
   } catch (error) {
-    return {error}
+    return { error };
   }
 };
 export const getPhoneById = async id => {
@@ -13,6 +13,14 @@ export const getPhoneById = async id => {
     const phone = await axios.get(root + "/phones/" + id);
     return phone;
   } catch (error) {
-    throw new Error("No device found")
+    throw new Error("No device found");
+  }
+};
+export const createPhone = async phoneData => {
+  try {
+    const res = await axios.post(root + "/phones", phoneData);
+    return res.data;
+  } catch (error) {
+    throw new Error("Error creating resource");
   }
 };

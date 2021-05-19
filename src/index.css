@@ -19,8 +19,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.button-custom {
+  border-radius: 0;
+  height: 3rem;
+  color: #34c6d3;
+  font-weight: 700;
+  border: 3px solid #34c6d3;
+  background: white;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.button-custom:hover,
+.button-custom:focus {
+  color: white;
+  background: #34c6d3;
+}
 .app-title {
   text-align: center;
+}
+.phone-list-header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .phone-card-wrapper {
   display: flex;
@@ -45,22 +65,6 @@ code {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-.phone-detail-title button {
-  border-radius: 0;
-  height: 2.5rem;
-  width: 5rem;
-  color: #34c6d3;
-  font-weight: 700;
-  border: 3px solid #34c6d3;
-  background: white;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-.phone-detail-title button:hover,
-.phone-detail-title button:focus {
-  color: white;
-  background: #34c6d3;
 }
 .phone-detail-info {
   display: flex;
