@@ -1,24 +1,20 @@
 # Phone Catalog
 ## Running locally
+### FROM **ROOT** 
 - Running the server:
 
-From **root**:
 ```sh
-cd server
-npm i
-npm start
+npm run install-server
+npm run start-server
 ```
-
 - Running the client
 
-From **root**:
 ```sh
-npm i
+npm install
 npm start
 ```
-
 ## Running with docker compose
-From **root**:
+### FROM **ROOT** 
 ```sh
 docker build -f ./server/Dockerfile -t server .
 docker build -f Dockerfile -t phone-app .
@@ -34,7 +30,7 @@ The server uses a json file to mock a database. It has four end points:
 
 Newly created device will not be added to the JSON file, but it will persist throughout the lifetime of the server. If you restart the server, it will reset all devices that are added by user.
 
-The client will get all phones to display on the main page. You can click on individual phone to get more information. There is a delete button to remove them as well. Finally you can add a phone with **Add Device** button. In which case, make sure to fill in all fields.
+The client will get all phones to display on the main page. You can click on individual phone to get more information. Finally you can add a phone with **Add Device** button. In which case, make sure to fill in all fields.
 ## Tech stacks
 ### Server
 - [NodeJS] - evented I/O for the backend

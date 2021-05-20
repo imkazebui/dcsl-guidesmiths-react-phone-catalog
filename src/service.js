@@ -5,7 +5,7 @@ export const getPhones = async () => {
     const phones = await axios.get(root + "/phones");
     return phones;
   } catch (error) {
-    return { error };
+    throw new Error("No devices found")
   }
 };
 export const getPhoneById = async id => {
