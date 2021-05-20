@@ -32,6 +32,26 @@ The server uses a json file to mock a database. It has four end points:
 - Delete Phone
 
 Newly created device will not be added to the JSON file, but it will persist throughout the lifetime of the server. If you restart the server, it will reset all devices that are added by user.
-The data is returned after 0.5s to better showcase the loading icon, otherwise it would be too quick to observe.
 
-The client will get all phones to display on the main page. You can click on individual phone to get more information. Finally you can add a phone with **Add Device** button. In which case, make sure to fill in all fields.
+The client will get all phones to display on the main page. You can click on individual phone to get more information. There is a delete button to remove them as well. Finally you can add a phone with **Add Device** button. In which case, make sure to fill in all fields.
+## Tech stacks
+### Server
+- [NodeJS] - evented I/O for the backend
+- [Express] - fast node.js network app framework
+- [Express Validator] - validate incoming request
+
+### Client
+- [ReactJS] - JavaScript library for building user interfaces
+- [React Spinner] - React SVG loader spinner
+- [React Modal] - React Responsive Modal
+- [Docker] - Build and compose images
+
+
+[//]: # (References)
+   [NodeJS]: <https://nodejs.org>
+   [Express Validator]: <https://express-validator.github.io/docs/>
+   [Express]: <http://expressjs.com>
+   [ReactJS]: <https://reactjs.org/>
+   [React Spinner]: <https://github.com/mhnpd/react-loader-spinner>
+   [React Modal]: <https://github.com/pradel/react-responsive-modal>
+   [Docker]: <https://www.docker.com/>

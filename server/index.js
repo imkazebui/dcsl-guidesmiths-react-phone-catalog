@@ -19,9 +19,7 @@ app.get("/phones/:id", (req, res) => {
   if (!phone) {
     return res.status(404).send({ error: "This phone doesn't exist" });
   }
-  setTimeout(() => {
-    return res.send(phone);
-  }, 500);
+  return res.send(phone);
 });
 
 app.post("/phones", validators, (req, res) => {
@@ -33,22 +31,19 @@ app.post("/phones", validators, (req, res) => {
     const id = data.length;
     const newDevice = {...req.body, id}
     data.push(newDevice);
-    setTimeout(() => {
-      return res.status(201).send({newDevice});
-    }, 500);
+    return res.status(201).send({newDevice});
   } catch (error) {
     return res.send({ error });
   }
 });
+
 app.delete("/phones/:id", (req, res) => {
   const device = data.find(phone => phone.id == req.params.id)
   if(!device) {
     return res.status(404).send({"errors": "No device with this id found"})
   }
   data.splice(data.indexOf(device), 1);
-  setTimeout(() => {
-    return res.status(200).send({"message": "Successfully remove device"})
-  }, 500)
+  return res.status(200).send({"message": "Successfully remove device"})
 })
 
 app.listen(3001, () => {
