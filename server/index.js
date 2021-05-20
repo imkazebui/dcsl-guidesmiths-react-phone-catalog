@@ -40,6 +40,16 @@ app.post("/phones", validators, (req, res) => {
     return res.send({ error });
   }
 });
+app.delete("/phones/:id", (req, res) => {
+  const device = data.find(phone => phone.id == req.params.id)
+  if(!device) {
+    return res.status(404).send({"errors": "No device with this id found"})
+  }
+  data.splice(data.indexOf(device), 1);
+  setTimeout(() => {
+    return res.status(200).send({"message": "Successfully remove device"})
+  }, 500)
+})
 
 app.listen(3001, () => {
   console.log("Server listening on Port 3001");

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getPhoneById } from "./service";
+import { getPhoneById , removePhone} from "./service";
 import { useHistory } from "react-router-dom";
 import Loader from "react-loader-spinner";
 
@@ -7,6 +7,7 @@ function PhoneDetail(props) {
   let history = useHistory();
   const [phone, setPhone] = useState({});
   const phoneID = props.match.params.id;
+
   useEffect(() => {
     (async () => {
       try {
@@ -18,7 +19,17 @@ function PhoneDetail(props) {
     })();
     return () => setPhone({});
   }, [phoneID]);
+  
   const handleClick = () => history.push("/");
+  const remove = async () => {
+    try {
+      await removePhone(phone.id)
+      handleClick();
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   if (!phone.name) {
     return (
       <div className="spinner">
@@ -64,6 +75,7 @@ function PhoneDetail(props) {
             <p>
               <strong>Screen:</strong> {phone.screen}
             </p>
+          <button className="button-custom button-remove" onClick={remove}>Remove</button>
           </div>
         </div>
       </div>

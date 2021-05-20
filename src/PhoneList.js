@@ -52,7 +52,7 @@ const PhoneList = () => {
         </Modal>
         <div className="phone-list-header">
           <h1>Phone Retail</h1>
-          <button className="button-custom" onClick={handleClick}>
+          <button className="button-custom button-add" onClick={handleClick}>
             Add Device
           </button>
         </div>

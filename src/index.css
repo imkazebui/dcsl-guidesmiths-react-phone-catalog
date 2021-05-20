@@ -34,6 +34,23 @@ code {
   color: white;
   background: #34c6d3;
 }
+.button-remove {
+  color: #E91E63;
+  float: right;
+  border-color: #E91E63;
+}
+.button-remove:hover, .button-remove:focus {
+  color: white;
+  background: #E91E63;
+}
+.button-add {
+  color: #4CAF50;
+  border-color: #4CAF50;
+}
+.button-add:hover, .button-add:focus {
+  color: white;
+  background: #4CAF50;
+}
 .app-title {
   text-align: center;
 }

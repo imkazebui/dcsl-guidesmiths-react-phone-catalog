@@ -136,7 +136,7 @@ const PhoneCreate = ({ addDevice }) => {
         </div>
       </form>
       <button
-        className="button-custom"
+        className="button-add button-custom"
         disabled={isDisabled()}
         style={{ marginTop: "10px", float: "right" }}
         type="submit"

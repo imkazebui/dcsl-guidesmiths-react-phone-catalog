@@ -24,10 +24,20 @@ export const createPhone = async phoneData => {
     throw new Error("Error creating resource");
   }
 };
-export const debounce = (func, timeout = 300) =>{
+export const removePhone = async id => {
+  try {
+    await axios.delete(root + "/phones/" + id);
+    console.log("Successfully remove device")
+  } catch (error) {
+    throw new Error("Error removing device", error);
+  }
+};
+export const debounce = (func, timeout = 300) => {
   let timer;
   return (...args) => {
     clearTimeout(timer);
-    timer = setTimeout(() => { func.apply(this, args); }, timeout);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, timeout);
   };
-}
+};
