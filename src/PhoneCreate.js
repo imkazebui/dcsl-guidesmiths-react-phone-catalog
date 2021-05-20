@@ -25,7 +25,7 @@ const PhoneCreate = ({ addDevice }) => {
       console.log({ error });
     }
   };
-  const handleSubmit = debounce(submit, 200)
+  const handleSubmit = debounce(submit, 250)
 
   const isDisabled = () => {
     return (
