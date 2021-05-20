@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createPhone } from "./service";
+import { createPhone, debounce } from "./service";
 
 const PhoneCreate = ({ addDevice }) => {
   const [formFields, setForm] = useState({
@@ -17,14 +17,28 @@ const PhoneCreate = ({ addDevice }) => {
     const value = e.target.value;
     setForm(prev => ({ ...prev, [fieldName]: value }));
   };
-  const handleSubmit = async e => {
+  const submit = async () => {
     try {
-      e.preventDefault();
-      await createPhone(formFields);
-      addDevice(formFields);
+      const res = await createPhone(formFields);
+      addDevice(res.newDevice);
     } catch (error) {
       console.log({ error });
     }
+  };
+  const handleSubmit = debounce(submit, 200)
+
+  const isDisabled = () => {
+    return (
+      !formFields.name ||
+      !formFields.manufacturer ||
+      !formFields.description ||
+      !formFields.color ||
+      !formFields.price ||
+      !formFields.imageFileName ||
+      !formFields.screen ||
+      !formFields.processor ||
+      !formFields.ram 
+    );
   };
 
   return (
@@ -123,6 +137,7 @@ const PhoneCreate = ({ addDevice }) => {
       </form>
       <button
         className="button-custom"
+        disabled={isDisabled()}
         style={{ marginTop: "10px", float: "right" }}
         type="submit"
         onClick={handleSubmit}

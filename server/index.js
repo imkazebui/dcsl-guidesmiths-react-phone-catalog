@@ -31,9 +31,10 @@ app.post("/phones", validators, (req, res) => {
       return res.status(422).json(errors);
     }
     const id = data.length;
-    data.push({ ...req.body, id });
+    const newDevice = {...req.body, id}
+    data.push(newDevice);
     setTimeout(() => {
-      return res.status(201).send({ message: "Device added to database" });
+      return res.status(201).send({newDevice});
     }, 500);
   } catch (error) {
     return res.send({ error });
