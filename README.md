@@ -8,6 +8,7 @@ cd server
 npm i
 npm start
 ```
+
 - Running the client
 
 From **root**:
