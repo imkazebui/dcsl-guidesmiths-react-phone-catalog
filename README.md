@@ -1,27 +1,31 @@
 # Phone Catalog
-## Running the server:
-From **root**
+## Running locally
+- Running the server:
+
+From **root**:
 ```sh
 cd server
 npm i
 npm start
 ```
-## Running the client:
-From **root**
+- Running the client
+
+From **root**:
 ```sh
 npm i
 npm start
 ```
+
 ## Running with docker compose
-From **root**, run the following commands:
+From **root**:
 ```sh
 docker build -f ./server/Dockerfile -t server .
 docker build -f Dockerfile -t phone-app .
 docker-compose up
 ```
-The web application will be available on port **3000**, while the server is at **3001**.
+The web application will be available on port **localhost:3000**, while the server is at **localhost:3001**.
 ## Explaining the application
-The server uses a json file to mock a database. It has three end points:
+The server uses a json file to mock a database. It has four end points:
 - Get Phones
 - Get Phone by Id
 - Create Phone
