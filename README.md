@@ -7,6 +7,7 @@
 npm run install-server
 npm run start-server
 ```
+
 - Running the client
 
 ```sh
