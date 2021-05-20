@@ -25,6 +25,7 @@ The server uses a json file to mock a database. It has three end points:
 - Get Phones
 - Get Phone by Id
 - Create Phone
+- Delete Phone
 
 Newly created device will not be added to the JSON file, but it will persist throughout the lifetime of the server. If you restart the server, it will reset all devices that are added by user.
 The data is returned after 0.5s to better showcase the loading icon, otherwise it would be too quick to observe.
