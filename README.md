@@ -1,17 +1,19 @@
 # Phone Catalog
-## Running the server
+## Running the server:
+From **root**
 ```sh
 cd server
 npm i
 npm start
 ```
-## Running the client
+## Running the client:
+From **root**
 ```sh
 npm i
 npm start
 ```
 ## Running with docker compose
-At the **root** level, run the following commands:
+From **root**, run the following commands:
 ```sh
 docker build -f ./server/Dockerfile -t server .
 docker build -f Dockerfile -t phone-app .
