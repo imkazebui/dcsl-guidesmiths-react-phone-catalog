@@ -1,6 +1,6 @@
 import "./App.css";
-import PhoneList from "./PhoneList";
-import PhoneDetail from "./PhoneDetail";
+import PhoneList from "./components/PhoneList";
+import PhoneDetail from "./components/PhoneDetail";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
   return (

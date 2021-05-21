@@ -1,11 +1,11 @@
-const axios = require("axios");
-const root = "http://localhost:3001";
+import axios from "axios";
+const root = process.env.REACT_APP_SERVER_URL;
 export const getPhones = async () => {
   try {
     const phones = await axios.get(root + "/phones");
     return phones;
   } catch (error) {
-    throw new Error("No devices found")
+    throw new Error("No devices found");
   }
 };
 export const getPhoneById = async id => {
@@ -27,17 +27,7 @@ export const createPhone = async phoneData => {
 export const removePhone = async id => {
   try {
     await axios.delete(root + "/phones/" + id);
-    console.log("Successfully remove device")
   } catch (error) {
     throw new Error("Error removing device", error);
   }
-};
-export const debounce = (func, timeout = 300) => {
-  let timer;
-  return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      func.apply(this, args);
-    }, timeout);
-  };
 };

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { createPhone, debounce } from "./service";
+import { createPhone } from "../services/phone.service";
+import { debounce } from "../services/helper.service";
 
 const PhoneCreate = ({ addDevice }) => {
   const [formFields, setForm] = useState({
@@ -25,7 +26,7 @@ const PhoneCreate = ({ addDevice }) => {
       console.log({ error });
     }
   };
-  const handleSubmit = debounce(submit, 250)
+  const handleSubmit = debounce(submit, 250);
 
   const isDisabled = () => {
     return (
@@ -43,6 +44,7 @@ const PhoneCreate = ({ addDevice }) => {
 
   return (
     <div>
+      <h1>Add Device</h1>
       <form>
         <div className="form-group">
           <label>Name:</label>
@@ -138,7 +140,6 @@ const PhoneCreate = ({ addDevice }) => {
       <button
         className="button-add button-custom"
         disabled={isDisabled()}
-        style={{ marginTop: "10px", float: "right" }}
         type="submit"
         onClick={handleSubmit}
       >
