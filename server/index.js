@@ -1,7 +1,8 @@
 const express = require("express");
-const cors = require("cors");
 const app = express();
+const cors = require("cors");
 
+const PORT = process.env.PORT || 3001;
 const validators = require("./validators/phone");
 const phoneControllers = require("./controllers/phone");
 
@@ -16,6 +17,6 @@ app.post("/phones", validators, phoneControllers.addPhone);
 
 app.delete("/phones/:id", phoneControllers.removePhone);
 
-app.listen(3001, () => {
-  console.log("Server listening on Port 3001");
+app.listen(PORT, () => {
+  console.log(`Server listening on Port 3001 ${PORT}`);
 });
