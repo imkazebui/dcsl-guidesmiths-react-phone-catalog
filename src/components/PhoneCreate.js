@@ -1,150 +1,117 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import { createPhone } from "../services/phone.service";
-import { debounce } from "../services/helper.service";
-
+import { useForm } from "react-hook-form";
 const PhoneCreate = ({ addDevice }) => {
-  const [formFields, setForm] = useState({
-    name: "",
-    manufacturer: "",
-    description: "",
-    color: "",
-    price: 0,
-    imageFileName: "",
-    screen: "",
-    processor: "",
-    ram: 0,
-  });
-  const handleFormChange = fieldName => e => {
-    const value = e.target.value;
-    setForm(prev => ({ ...prev, [fieldName]: value }));
-  };
-  const submit = async () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const [isSubmitting, setSubmit] = useState(false)
+  const submit = async data => {
+    setSubmit(true)
     try {
-      const res = await createPhone(formFields);
+      const res = await createPhone(data);
       addDevice(res.newDevice);
     } catch (error) {
       console.log({ error });
     }
   };
-  const handleSubmit = debounce(submit, 250);
-
-  const isDisabled = () => {
-    return (
-      !formFields.name ||
-      !formFields.manufacturer ||
-      !formFields.description ||
-      !formFields.color ||
-      !formFields.price ||
-      !formFields.imageFileName ||
-      !formFields.screen ||
-      !formFields.processor ||
-      !formFields.ram 
-    );
-  };
 
   return (
     <div>
       <h1>Add Device</h1>
-      <form>
+      <form onSubmit={handleSubmit(submit)}>
         <div className="form-group">
           <label>Name:</label>
           <input
-            className="form-control"
             type="text"
-            name="name"
-            value={formFields.name}
-            onChange={handleFormChange("name")}
+            className="form-control"
+            {...register("name", { required: true })}
           ></input>
+          {errors?.name?.type === "required" && <span className="error-msg">This field is required</span>}
         </div>
         <div className="form-group">
           <label>Manufacturer:</label>
-          <input
-            className="form-control"
-            type="text"
-            name="manufacturer"
-            value={formFields.manufacturer}
-            onChange={handleFormChange("manufacturer")}
-          ></input>
+          <select
+            className="form-select"
+            {...register("manufacturer", { required: true })}
+          >
+            <option value="Apple">Apple</option>
+            <option value="Samsung">Samsung</option>
+            <option value="Oppo">Oppo</option>
+            <option value="Huawei">Huawei</option>
+          </select>
         </div>
         <div className="form-group">
           <label>Description:</label>
           <input
-            type="text"
-            name="description"
-            value={formFields.description}
             className="form-control"
-            onChange={handleFormChange("description")}
+            type="text"
+            {...register("description", { required: true })}
           ></input>
+          {errors.description && <span className="error-msg">This field is required</span>}
         </div>
         <div className="form-group">
           <label>Color:</label>
           <input
-            type="text"
-            name="color"
-            value={formFields.color}
             className="form-control"
-            onChange={handleFormChange("color")}
+            type="text"
+            {...register("color", { required: true })}
           ></input>
+          {errors.color && <span className="error-msg">This field is required</span>}
         </div>
         <div className="form-group">
           <label>Price:</label>
           <input
-            type="number"
             className="form-control"
-            name="price"
-            onChange={handleFormChange("price")}
-            value={formFields.price}
+            type="number"
+            {...register("price", { required: true, min: 1 })}
           ></input>
+          {errors?.price?.type === "required" && <span className="error-msg">This field is required</span>}
+          {errors?.price?.type === "min" && <span className="error-msg">This field must be positive</span>}
         </div>
         <div className="form-group">
           <label>Image:</label>
           <input
             className="form-control"
             type="text"
-            name="imageFileName"
-            value={formFields.imageFileName}
-            onChange={handleFormChange("imageFileName")}
+            {...register("imageFileName", { required: true })}
           ></input>
+          {errors.imageFileName && <span className="error-msg">This field is required</span>}
         </div>
         <div className="form-group">
           <label>Screen:</label>
           <input
-            type="text"
-            name="screen"
-            value={formFields.screen}
             className="form-control"
-            onChange={handleFormChange("screen")}
+            type="text"
+            {...register("screen", { required: true })}
           ></input>
+          {errors.screen && <span className="error-msg">This field is required</span>}
         </div>
         <div className="form-group">
           <label>Processor:</label>
           <input
-            type="text"
-            name="processor"
-            value={formFields.processor}
             className="form-control"
-            onChange={handleFormChange("processor")}
+            type="text"
+            {...register("processor", { required: true })}
           ></input>
+          {errors.processor && <span className="error-msg">This field is required</span>}
         </div>
         <div className="form-group">
           <label>Ram:</label>
           <input
             className="form-control"
             type="number"
-            name="ram"
-            value={formFields.ram}
-            onChange={handleFormChange("ram")}
+            {...register("ram", { required: true , min: 1})}
           ></input>
+          {errors?.ram?.type === "required" && <span className="error-msg">This field is required</span>}
+          {errors?.ram?.type === "min" && <span className="error-msg">This field must be positive</span>}
         </div>
-      </form>
-      <button
-        className="button-add button-custom"
-        disabled={isDisabled()}
-        type="submit"
-        onClick={handleSubmit}
-      >
+      <button disabled={isSubmitting} className="button-add button-custom" type="submit">
         Submit
       </button>
+      </form>
     </div>
   );
 };

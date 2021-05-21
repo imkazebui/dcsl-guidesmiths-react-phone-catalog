@@ -22,7 +22,6 @@
 .App-link {
   color: #61dafb;
 }
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -67,6 +66,10 @@
 .button-add:focus {
   color: white;
   background: #4caf50;
+}
+.error-msg {
+  color: #e91e63;
+  font-weight: 700;
 }
 .app-title {
   text-align: center;

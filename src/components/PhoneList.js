@@ -24,7 +24,7 @@ const PhoneList = () => {
   const onClose = () => setOpen(false);
   const addDevice = device => {
     onClose();
-    setPhones([...phones, { ...device, id: phones.length }]);
+    setPhones([...phones, { ...device }]);
   };
 
   if (phones.length === 0) {
