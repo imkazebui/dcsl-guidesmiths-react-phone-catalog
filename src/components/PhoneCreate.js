@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { createPhone } from "../services/phone.service";
 import { useForm } from "react-hook-form";
+
 const PhoneCreate = ({ addDevice }) => {
   const {
     register,
@@ -11,6 +12,7 @@ const PhoneCreate = ({ addDevice }) => {
   const submit = async data => {
     setSubmit(true)
     try {
+      data.imageFileName = process.env.REACT_APP_DEFAULT_IMAGE
       const res = await createPhone(data);
       addDevice(res.newDevice);
     } catch (error) {
@@ -75,7 +77,7 @@ const PhoneCreate = ({ addDevice }) => {
           <label>Image:</label>
           <input
             className="form-control"
-            type="text"
+            type="file"
             {...register("imageFileName", { required: true })}
           ></input>
           {errors.imageFileName && <span className="error-msg">This field is required</span>}
