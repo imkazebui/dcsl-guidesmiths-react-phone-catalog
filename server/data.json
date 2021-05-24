@@ -1,0 +1,62 @@
+[
+  {
+    "id": 0,
+    "name": "IPhone 7",
+    "manufacturer": "Apple",
+    "description": "Lorem Ipsum Dolor Sit",
+    "color": "Black",
+    "price": 769,
+    "imageFileName": "https://www.hocoborofone.com/wp-content/uploads/2020/02/hoco-thin-series-frosted-case-for-iphone-6.5-6.1-5.8-interior-black.jpg",
+    "screen": "4,7 inch IPS",
+    "processor": "A10 Fusion",
+    "ram": 2
+  },
+  {
+    "id": 1,
+    "name": "IPhone 8",
+    "manufacturer": "Apple",
+    "description": "Lorem Ipsum Dolor Sit",
+    "color": "White",
+    "price": 1089,
+    "imageFileName": "https://hoangdangstore.vn/wp-content/uploads/2020/10/iphone-8-64gb-3312219572-jpg-510x510.jpg",
+    "screen": "4,9 inch IPS",
+    "processor": "A6 Fusion",
+    "ram": 2
+  },
+  {
+    "id": 2,
+    "name": "Galaxy S10",
+    "manufacturer": "Samsung",
+    "description": "Lorem Ipsum Dolor Sit",
+    "color": "Black",
+    "price": 819,
+    "imageFileName": "https://cdn.tgdd.vn/Products/Images/42/161554/sieu-pham-galaxy-s-black-600x600.jpg",
+    "screen": "5,1 inch IPS",
+    "processor": "A10 Fusion",
+    "ram": 4
+  },
+  {
+    "id": 3,
+    "name": "Oppo 7",
+    "manufacturer": "Oppo",
+    "description": "Lorem Ipsum Dolor Sit",
+    "color": "Blue",
+    "price": 415,
+    "imageFileName": "https://n1.sdlcdn.com/imgs/i/p/r/Oppo-A5s-CPH1909-32GB-2-SDL132999671-6-475d9.jpeg",
+    "screen": "5,1 inch IPS",
+    "processor": "Core Fusion",
+    "ram": 4
+  },
+  {
+    "id": 4,
+    "name": "Huawei Mate 10",
+    "manufacturer": "Huawei",
+    "description": "Lorem Ipsum Dolor Sit",
+    "color": "Blue",
+    "price": 770,
+    "imageFileName": "https://product.hstatic.net/1000309862/product/iphone_8_plus_black_0a9094c5a4c54a089b60a0b4a1347be6_master.png",
+    "screen": "5,1 inch IPS",
+    "processor": "Core Fusion",
+    "ram": 2
+  }
+]
